@@ -1,3 +1,5 @@
+import ThemeComponent from "@/components/custom/Theme";
+
 import React from "react";
 
 export default function Mainlayout({
@@ -5,5 +7,11 @@ export default function Mainlayout({
 }: Readonly<{
   children?: React.ReactNode;
 }>) {
-  return <main className="h-screen">{children}</main>;
+  return (
+    <main className="h-screen">
+      
+      <ThemeComponent />
+      {children}
+    </main>
+  );
 }
