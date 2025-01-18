@@ -22,7 +22,7 @@ export default function ThemeComponent() {
           }
         />
         <label
-          className="group relative inline-flex size-9 cursor-pointer items-center justify-center rounded-lg border border-input bg-background text-foreground shadow-sm shadow-black/5 transition-colors hover:bg-accent hover:text-accent-foreground peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-ring/70"
+          className="group relative inline-flex size-10 cursor-pointer items-center justify-center rounded-full bg-background  text-foreground shadow-xl shadow-black/5 transition-colors hover:text-accent-foreground peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-ring/70"
           htmlFor={id}
         >
           {/* Note: After dark mode implementation, rely on dark: prefix rather than peer-checked:group-[]: */}

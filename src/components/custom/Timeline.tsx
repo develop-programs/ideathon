@@ -1,5 +1,6 @@
 "use client";
 import { Clock } from "lucide-react";
+import { BackgroundGradient } from "../ui/bg-gradiant";
 
 const timelineData = [
   {
@@ -43,25 +44,12 @@ export const Timeline = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-12">
           {timelineData.map((day, index: number) => (
-            <div
+            <BackgroundGradient
               key={index}
               className="relative p-[2px] rounded-lg animate-fade-in overflow-hidden"
-              style={{
-                background:
-                  "linear-gradient(45deg, #8B5CF6, #D946EF, #F97316, #8B5CF6)",
-                backgroundSize: "200% 200%",
-              }}
+              gradiantColors="bg-[radial-gradient(circle_farthest-side_at_0_100%,#8B5CF6,transparent),radial-gradient(circle_farthest-side_at_100%_0,#F97316,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#8B5CF6,transparent),radial-gradient(circle_farthest-side_at_0_0,#F97316,#D946EF)]"
             >
-              <div
-                className="absolute inset-0 animate-neon-border"
-                style={{
-                  background:
-                    "linear-gradient(45deg, #8B5CF6, #D946EF, #F97316, #8B5CF6)",
-                  backgroundSize: "200% 200%",
-                  filter: "blur(8px)",
-                }}
-              />
-              <div className="relative bg-card rounded-lg p-8 z-10">
+              <div className="relative bg-card rounded-2xl p-8 z-10">
                 <h3 className="text-2xl font-bold mb-6 text-primary">
                   {day.day}
                 </h3>
@@ -84,7 +72,7 @@ export const Timeline = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </BackgroundGradient>
           ))}
         </div>
       </div>

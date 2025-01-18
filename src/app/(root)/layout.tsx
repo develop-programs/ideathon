@@ -1,3 +1,4 @@
+import Footer from "@/components/custom/Footer";
 import ThemeComponent from "@/components/custom/Theme";
 
 import React from "react";
@@ -8,10 +9,12 @@ export default function Mainlayout({
   children?: React.ReactNode;
 }>) {
   return (
-    <main className="h-screen">
-      
-      <ThemeComponent />
-      {children}
-    </main>
+    <>
+      <main>
+        <ThemeComponent />
+        {children}
+        <Footer />
+      </main>
+    </>
   );
 }

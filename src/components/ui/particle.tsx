@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
@@ -50,13 +51,15 @@ export default function Background3D() {
       new THREE.BufferAttribute(colors, 3)
     );
 
-    // Material with vertex colors and increased size
+    // Material with vertex colors and round particles
     const particlesMaterial = new THREE.PointsMaterial({
       size: 0.009, // Further increased particle size
       vertexColors: true,
       transparent: true,
       opacity: 1, // Full opacity
       sizeAttenuation: true,
+      map: new THREE.TextureLoader().load('/path/to/round-particle-texture.png'), // Add round texture
+      alphaTest: 0.5, // Handle transparency
     });
 
     // Mesh

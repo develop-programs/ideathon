@@ -34,11 +34,13 @@ export const CountdownTimer = () => {
 
   return (
     <div className="bg-gradient-to-r from-Cprimary via-Csecondary to-Caccent py-12 text-white">
-      <div className="max-w-7xl mx-auto grid gap-6">
-        <h3 className="text-4xl font-semibold text-center">Event Starts In</h3>
-        <div className="flex items-center gap-4 justify-center flex-wrap">
+      <div className="max-w-7xl mx-auto grid gap-6 place-content-center">
+        <div className="flex justify-center">
+          <h3 className="text-4xl font-semibold">Event Starts In</h3>
+        </div>
+        <div className="max-w-3xl grid sm:grid-cols-2 md:grid-cols-4 gap-4">
           {Object.entries(timeLeft).map(([unit, value]) => (
-            <div key={unit} className="flex items-center justify-center gap-4">
+            <div key={unit} className="w-full">
               <div className="bg-white/10 border-2 border-white/25 shadow-xl rounded-lg py-8 px-12 text-center space-y-4">
                 <div className="text-6xl font-bold">{value}</div>
                 <div className="text-lg uppercase">{unit}</div>
