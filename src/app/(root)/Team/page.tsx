@@ -1,6 +1,14 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import TeamsCarousel from "./(component)/TeamsCarousel";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import VolunteerForm from "./(component)/VotuneerForm";
 
 export default function Team() {
   return (
@@ -31,14 +39,34 @@ export default function Team() {
                   Contact Us
                 </Button>
               </Link>
-              {/* <Button
-                size="lg"
-                variant="outline"
-                onClick={() => setShowForm(!showForm)}
-                className="hover:scale-105 transform transition-transform duration-700 text-2xl px-12 py-8"
-              >
-                {showForm ? "View Team" : "Join Our Team"}
-              </Button> */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="hover:scale-105 hover:bg-Caccent transform transition-transform duration-300"
+                  >
+                    Join Us
+                  </Button>
+                </DialogTrigger>
+                <DialogContent
+                  className="max-w-4xl h-[calc(100vh-10vh)] overflow-auto will-change-scroll
+                scroll-px-2"
+                >
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl text-center">
+                      Volunteer Application Form
+                    </DialogTitle>
+                    <div className="grid gap-2">
+                      <span className="text-lg">Event: Aavnya Ideathon</span>
+                      <span className="text-sm">
+                        Application Deadline: March 31, 2024
+                      </span>
+                    </div>
+                  </DialogHeader>
+                  <VolunteerForm />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>

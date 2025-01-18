@@ -1,5 +1,4 @@
-"use client";
-
+ "use client";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -13,17 +12,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "@/store/store";
-import {
-  addTeamMember,
-  updateTeamMember,
-  removeTeamMember,
-} from "@/store/providers/Teams";
-import { Trash2, Edit } from "lucide-react";
 import React from "react";
-import { Card } from "../ui/card";
+import { Card } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
@@ -32,7 +22,8 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "@/components/ui/select";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   username: z.string().min(2, "Username is required").max(50),
@@ -57,9 +48,6 @@ const formSchema = z.object({
 });
 
 export default function TeamEditor() {
-  const data = useSelector((state: any) => state.team.data);
-  const { toast } = useToast();
-  const dispatch = useDispatch<AppDispatch>();
   const [editingIndex, setEditingIndex] = React.useState<number | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -75,56 +63,20 @@ export default function TeamEditor() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const newMember = {
-      name: values.username,
-      role: values.role,
-      image: values.image,
-      linkedIn: values.linkedIn,
-      github: values.github,
-      instagram: values.instagram,
-    };
+    console.log(values);
 
-    if (editingIndex !== null) {
-      dispatch(
-        updateTeamMember({
-          oldName: data[editingIndex].name,
-          member: newMember,
-        })
-      );
-      toast({
-        title: "Success",
-        description: "Team member updated successfully",
-      });
-    } else {
-      dispatch(addTeamMember(newMember));
-      toast({
-        title: "Success",
-        description: "Team member added successfully",
-      });
-    }
-
+    toast.success("Team member updated successfully");
     form.reset();
     setEditingIndex(null);
   }
 
-  const handleEdit = (index: number) => {
-    const member = data[index];
-    form.setValue("username", member.name);
-    form.setValue("role", member.role);
-    form.setValue("image", member.image);
-    form.setValue("linkedIn", member.linkedIn);
-    form.setValue("instagram", member.instagram);
-    form.setValue("github", member.github);
-    setEditingIndex(index);
-  };
+  // const handleEdit = (index: number) => {
+  //   setEditingIndex(index);
+  // };
 
-  const handleDelete = (name: string) => {
-    dispatch(removeTeamMember(name));
-    toast({
-      title: "Success",
-      description: "Team member deleted successfully",
-    });
-  };
+  // const handleDelete = (name: string) => {
+  //   toast.success("Team member deleted successfully");
+  // };
 
   return (
     <div className="space-y-4">
@@ -161,14 +113,11 @@ export default function TeamEditor() {
                       <SelectContent>
                         <SelectGroup>
                           <SelectLabel>Roles</SelectLabel>
-                          {
-                            // @ts-ignore
-                            formSchema.shape.role._def.values.map((role) => (
-                              <SelectItem key={role} value={role}>
-                                {role}
-                              </SelectItem>
-                            ))
-                          }
+                          {formSchema.shape.role._def.values.map((role) => (
+                            <SelectItem key={role} value={role}>
+                              {role}
+                            </SelectItem>
+                          ))}
                         </SelectGroup>
                       </SelectContent>
                     </Select>
@@ -237,7 +186,7 @@ export default function TeamEditor() {
       </Card>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {data.map((member, index) => (
+        {/* {data.map((member, index: number) => (
           <Card key={index} className="p-4">
             <div className="flex justify-between items-start">
               <div>
@@ -262,7 +211,7 @@ export default function TeamEditor() {
               </div>
             </div>
           </Card>
-        ))}
+        ))} */}
       </div>
     </div>
   );

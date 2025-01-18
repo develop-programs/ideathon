@@ -52,8 +52,8 @@ const SocialMedia = [
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(27.4144 71.017) scale(65.31 65.2708)"
           >
-            <stop offset="0.09" stop-color="#FA8F21" />
-            <stop offset="0.78" stop-color="#D82D7E" />
+            <stop offset="0.09" stopColor="#FA8F21" />
+            <stop offset="0.78" stopColor="#D82D7E" />
           </radialGradient>
           <radialGradient
             id="paint1_radial_1_376"
@@ -63,8 +63,8 @@ const SocialMedia = [
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(51.1086 73.257) scale(51.4733 51.4424)"
           >
-            <stop offset="0.64" stop-color="#8C3AAA" stop-opacity="0" />
-            <stop offset="1" stop-color="#8C3AAA" />
+            <stop offset="0.64" stopColor="#8C3AAA" stopOpacity="0" />
+            <stop offset="1" stopColor="#8C3AAA" />
           </radialGradient>
         </defs>
       </svg>
@@ -141,7 +141,7 @@ export default function Footer() {
   }, [pathname]);
 
   return (
-    <footer className="bg-[#1A1F2C] text-gray-300">
+    <footer className="bg-slate-300 dark:bg-[#1A1F2C] dark:text-gray-300">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo and Title Section */}
@@ -152,16 +152,18 @@ export default function Footer() {
                 alt="ITM University Logo"
                 width={150}
                 height={150}
-                className="w-32 object-cover"
+                className="w-32 object-cover invert dark:invert-0"
               />
-              <h2 className="text-xl font-bold text-white">Ideathon</h2>
-              <span>From Concept To Market</span>
+              <div className="space-y-1">
+                <h2 className="text-xl font-bold dark:text-white">Ideathon</h2>
+                <span>From Concept To Market</span>
+              </div>
             </div>
           </div>
 
           {/* Quick Links Section */}
           <div>
-            <h4 className="text-xl font-bold mb-6 text-white border-b border-gray-700 pb-2">
+            <h4 className="text-xl font-bold mb-6 dark:text-white border-b border-gray-700 pb-2">
               Quick Links
             </h4>
             <ul className="grid grid-cols-2 gap-3">
@@ -189,7 +191,7 @@ export default function Footer() {
 
           {/* Social Media Section */}
           <div>
-            <h4 className="text-xl font-bold mb-6 text-white border-b border-gray-700 pb-2">
+            <h4 className="text-xl font-bold mb-6 dark:text-white border-b border-gray-700 pb-2">
               Follow Us
             </h4>
             <div className="flex items-center">

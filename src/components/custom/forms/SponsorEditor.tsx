@@ -1,9 +1,7 @@
-import { useState } from "react";
+"use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { useToast } from "@/components/ui/use-toast";
-import { SponsorsData } from "@/json/Sponsers";
 import {
   Select,
   SelectContent,
@@ -22,8 +20,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useSelector } from "react-redux";
-import { Edit, Trash2 } from "lucide-react";
+import { toast } from "sonner";
+import React from "react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required").max(50),
@@ -33,10 +31,7 @@ const formSchema = z.object({
 });
 
 export const SponsorEditor = () => {
-  const { toast } = useToast();
-  const [editingIndex, setEditingIndex] = useState<number | null>(null);
-  const data = useSelector((state: any) => state.sponsor.data);
-
+  const [editingIndex, setEditingIndex] = React.useState<number | null>(null);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,59 +42,24 @@ export const SponsorEditor = () => {
     },
   });
 
-  const handleSave = (values: z.infer<typeof formSchema>) => {
-    try {
-      const newSponsor = {
-        name: values.name,
-        tier: values.tier,
-        logo: values.logo,
-        website: values.website,
-      };
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
 
-      if (editingIndex !== null) {
-        SponsorsData[editingIndex] = newSponsor;
-      } else {
-        SponsorsData.push(newSponsor);
-      }
+    toast.success("Sponsor added successfully");
+  }
 
-      toast({
-        title: "Success",
-        description: "Sponsor saved successfully",
-      });
+  // const handleEdit = (index: number) => {};
 
-      form.reset();
-      setEditingIndex(null);
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to save sponsor",
-        variant: "destructive",
-      });
-    }
-  };
-
-  const handleEdit = (index: number) => {
-    const sponsor = SponsorsData[index];
-    form.setValue("name", sponsor.name);
-    form.setValue("tier", sponsor.tier);
-    form.setValue("logo", sponsor.logo);
-    form.setValue("website", sponsor.website);
-    setEditingIndex(index);
-  };
-
-  const handleDelete = (index: number) => {
-    SponsorsData.splice(index, 1);
-    toast({
-      title: "Success",
-      description: "Sponsor deleted successfully",
-    });
-  };
+  // const handleDelete = (index: number) => {
+  //   console.log(index);
+  //   toast.success("Sponsor deleted successfully");
+  // };
 
   return (
     <div className="space-y-4">
       <Card className="p-4 space-y-4">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(handleSave)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
               control={form.control}
               name="name"
@@ -156,7 +116,7 @@ export const SponsorEditor = () => {
           </form>
         </Form>
       </Card>
-      <div className="w-full grid grid-cols-4 gap-4">
+      {/* <div className="w-full grid grid-cols-4 gap-4">
         {data.map((sponsor: any, index: number) => (
           <Card key={index} className="p-4">
             <div className="flex justify-between items-start">
@@ -183,7 +143,7 @@ export const SponsorEditor = () => {
             </div>
           </Card>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

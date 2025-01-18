@@ -1,11 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
+import moment from "moment";
 
 const calculateTimeLeft = () => {
-  const eventDate = new Date("2025-03-15T00:00:00").getTime();
-  const now = new Date().getTime();
-  const difference = eventDate - now;
-  if (difference <= 0) {
+  const eventDate = moment("2025-03-15T00:00:00");
+  const now = moment();
+  const difference = moment.duration(eventDate.diff(now));
+  if (difference.asMilliseconds() <= 0) {
     return {
       days: 0,
       hours: 0,
@@ -14,10 +15,10 @@ const calculateTimeLeft = () => {
     };
   }
   return {
-    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((difference / 1000 / 60) % 60),
-    seconds: Math.floor((difference / 1000) % 60),
+    days: Math.floor(difference.asDays()),
+    hours: difference.hours(),
+    minutes: difference.minutes(),
+    seconds: difference.seconds(),
   };
 };
 

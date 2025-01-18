@@ -44,10 +44,25 @@ model startup {
   contact         String
 }
 
+model user {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      Role
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 enum Tier {
   Platinum
   Gold
   Silver
   Bronze
   other
+}
+
+enum Role {
+  SuperAdmin
+  Admin
+  User
 }

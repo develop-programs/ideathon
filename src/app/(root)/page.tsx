@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Trophy } from "lucide-react";
+import { MapPin, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountdownTimer } from "@/components/custom/CountDown";
 import { Timeline } from "@/components/custom/Timeline";
@@ -39,7 +39,22 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 animate-fade-in">
               <div className="transform hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center gap-4 backdrop-blur-md bg-white/30 dark:bg-black/30 p-6 rounded-2xl shadow-xl border border-white/20">
-                  <Calendar className="w-8 h-8 text-Cprimary" />
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="size-12 stroke-Caccent"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.75 17.2202V17.1428M12.25 17.2202V17.1428M12.25 13.0286V12.9512M16.25 13.0286V12.9512M4.75 8.91425H18.75M6.55952 3V4.54304M16.75 3V4.54285M16.75 4.54285H6.75C5.09315 4.54285 3.75 5.92436 3.75 7.62855V17.9143C3.75 19.6185 5.09315 21 6.75 21H16.75C18.4069 21 19.75 19.6185 19.75 17.9143L19.75 7.62855C19.75 5.92436 18.4069 4.54285 16.75 4.54285Z"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+
                   <div className="text-left">
                     <h3 className="font-semibold text-lg">Date</h3>
                     <span className="text-lg">March 15-16, 2024</span>
@@ -49,7 +64,7 @@ export default function Home() {
 
               <div className="transform hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center gap-4 backdrop-blur-md bg-white/30 dark:bg-black/30 p-6 rounded-2xl shadow-xl border border-white/20">
-                  <MapPin className="w-8 h-8 text-Csecondary" />
+                  <MapPin className="size-12 text-Csecondary" />
                   <div className="text-left">
                     <h3 className="font-semibold text-lg">Venue</h3>
                     <span className="text-sm md:text-lg">
@@ -61,7 +76,7 @@ export default function Home() {
 
               <div className="col-span-1 md:col-span-3 lg:col-span-1 transform hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center gap-4 backdrop-blur-md bg-white/30 dark:bg-black/30 p-6 rounded-2xl shadow-xl border border-white/20">
-                  <Trophy className="w-8 h-8 text-Caccent" />
+                  <Trophy className="size-12 text-Caccent" />
                   <div className="text-left">
                     <h3 className="font-semibold text-lg">Prize Pool</h3>
                     <span className="text-lg">₹60,000</span>

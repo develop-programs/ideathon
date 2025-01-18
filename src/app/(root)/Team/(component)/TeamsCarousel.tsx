@@ -92,7 +92,7 @@ export default function TeamsCarousel() {
   return (
     <Carousel
       className="max-w-7xl mx-auto"
-      plugins={[Autoplay({ delay: 5000 })]}
+      plugins={[Autoplay({ delay: 1000 })]}
       opts={{
         loop: true,
       }}
@@ -113,7 +113,7 @@ export default function TeamsCarousel() {
                     height={300}
                     alt="images"
                   />
-                  <div className="w-full bg-black/60 z-50 py-2 space-y-2 rounded-b-md">
+                  <div className="w-full bg-black/30 dark:bg-black/60 z-50 py-4 space-y-2 rounded-b-md">
                     <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-gray-100">
                       {info.name}
                     </h3>

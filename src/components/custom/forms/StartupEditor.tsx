@@ -13,18 +13,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "@/store/store";
-import {
-  addStartup,
-  updateStartup,
-  removeStartup,
-} from "@/store/providers/Startups";
 import React from "react";
-import { Card } from "../ui/card";
-import { TagsInput } from "../ui/TagInput";
-import { Edit, Trash2 } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { TagsInput } from "@/components/ui/TagInput";
 import {
   Select,
   SelectContent,
@@ -32,7 +23,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "../ui/textarea";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required").max(50),
@@ -47,9 +39,6 @@ const formSchema = z.object({
 });
 
 export default function StartupEditor() {
-  const data = useSelector((state: any) => state.startup.data);
-  const { toast } = useToast();
-  const dispatch = useDispatch<AppDispatch>();
   const [editingIndex, setEditingIndex] = React.useState<number | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -68,55 +57,31 @@ export default function StartupEditor() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const newStartup = {
-      name: values.name,
-      slug: values.slug,
-      description: values.description,
-      image: values.image,
-      category: values.category,
-      longdescription: values.longdescription,
-      founded: values.founded,
-      team: values.team,
-      contact: values.contact,
-    };
-
-    if (editingIndex !== null) {
-      toast({
-        title: "Success",
-        description: "Startup updated successfully",
-      });
-    } else {
-      toast({
-        title: "Success",
-        description: "Startup added successfully",
-      });
-    }
-
-    form.reset();
-    setEditingIndex(null);
+    console.log(values);
+    toast.success("Startup added successfully");
   }
 
-  const handleEdit = (index: number) => {
-    const startup = data[index];
-    form.setValue("name", startup.name);
-    form.setValue("slug", startup.slug);
-    form.setValue("description", startup.description);
-    form.setValue("image", startup.image);
-    form.setValue("category", startup.category);
-    form.setValue("longdescription", startup.longdescription);
-    form.setValue("founded", startup.founded);
-    form.setValue("team", startup.team);
-    form.setValue("contact", startup.contact);
-    setEditingIndex(index);
-  };
+  // const handleEdit = (index: number) => {
+  //   const startup = data[index];
+  //   form.setValue("name", startup.name);
+  //   form.setValue("slug", startup.slug);
+  //   form.setValue("description", startup.description);
+  //   form.setValue("image", startup.image);
+  //   form.setValue("category", startup.category);
+  //   form.setValue("longdescription", startup.longdescription);
+  //   form.setValue("founded", startup.founded);
+  //   form.setValue("team", startup.team);
+  //   form.setValue("contact", startup.contact);
+  //   setEditingIndex(index);
+  // };
 
-  const handleDelete = (slug: string) => {
-    dispatch(removeStartup(slug));
-    toast({
-      title: "Success",
-      description: "Startup deleted successfully",
-    });
-  };
+  // const handleDelete = (slug: string) => {
+  //   dispatch(removeStartup(slug));
+  //   toast({
+  //     title: "Success",
+  //     description: "Startup deleted successfully",
+  //   });
+  // };
 
   return (
     <div className="space-y-4">

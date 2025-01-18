@@ -1,7 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import Link from "next/link";
-import SponsersCard from "./(compoents)/SponsersCard";
+import SponsersForm from "./(components)/SponsersForm";
+import SponsersCard from "./(components)/SponsersCard";
 
 interface Sponsor {
   name: string;
@@ -10,13 +16,12 @@ interface Sponsor {
   website: string;
 }
 
-export const SponsorsData: Sponsor[] = [
+const SponsorsData: Sponsor[] = [
   {
     name: "TechCorp Global",
     tier: "title",
     logo: "/placeholder.svg",
-    website:
-      "https://w7.pngwing.com/pngs/523/198/png-transparent-google-logo-google-search-google-play-google-text-logo-number-thumbnail.png",
+    website: "https://example.com",
   },
   {
     name: "InnovateX",
@@ -62,7 +67,7 @@ export const SponsorsData: Sponsor[] = [
   },
 ];
 
-export default function page() {
+export default function Page() {
   return (
     <div className="min-h-screen flex flex-col justify-around items-center py-12">
       <section>
@@ -70,12 +75,10 @@ export default function page() {
           <h1 className="text-4xl font-bold bg-gradient-to-r from-Cprimary via-Csecondary to-Caccent bg-clip-text text-transparent">
             Our Valued Sponsors
           </h1>
-
           <p className="max-w-2xl text-xl text-gray-600 dark:text-gray-300">
             Meet the innovative organizations supporting our mission and making
             our events possible.
           </p>
-
           <div className="space-x-6">
             <Dialog>
               <DialogTrigger asChild>
@@ -87,7 +90,10 @@ export default function page() {
                   Become a Sponsor
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-4xl"></DialogContent>
+              <DialogContent className="max-w-2xl">
+                <DialogTitle>Sponsorship Application</DialogTitle>
+                <SponsersForm />
+              </DialogContent>
             </Dialog>
             <Link href="/contact">
               <Button
@@ -101,8 +107,6 @@ export default function page() {
           </div>
         </div>
       </section>
-
-      {/* Sponsors Grid */}
       <section>
         <div className="max-w-7xl mx-auto">
           <SponsersCard title="title" data={SponsorsData} />
@@ -112,8 +116,6 @@ export default function page() {
           <SponsersCard title="others" data={SponsorsData} />
         </div>
       </section>
-
-      {/* CTA Section */}
       <section>
         <div className="text-center flex flex-col gap-8">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-Cprimary via-Csecondary to-Caccent bg-clip-text text-transparent">

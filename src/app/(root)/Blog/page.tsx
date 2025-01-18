@@ -2,7 +2,8 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import moment from "moment";
 import { Badge } from "@/components/ui/badge";
-export const BlogsData = [
+
+const BlogsData = [
   {
     id: 1,
     title: "Getting Started with React",
@@ -14,24 +15,6 @@ export const BlogsData = [
   },
   {
     id: 2,
-    title: "The Future of Web Development",
-    content:
-      "As we look towards the future of web development, several trends are emerging. From AI-powered development tools to WebAssembly, the landscape of web development continues to evolve rapidly.",
-    category: "Technology",
-    created_at: "2024-01-11T15:30:00Z",
-    author: "Jane Smith",
-  },
-  {
-    id: 3,
-    title: "Getting Started with React",
-    content:
-      "React is a powerful library for building user interfaces. It allows developers to create reusable UI components that manage their own state, resulting in complex UIs being built from simple building blocks.",
-    category: "Technology",
-    created_at: "2024-01-12T10:00:00Z",
-    author: "John Doe",
-  },
-  {
-    id: 4,
     title: "The Future of Web Development",
     content:
       "As we look towards the future of web development, several trends are emerging. From AI-powered development tools to WebAssembly, the landscape of web development continues to evolve rapidly.",

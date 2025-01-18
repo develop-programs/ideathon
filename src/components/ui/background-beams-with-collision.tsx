@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "motion/react";

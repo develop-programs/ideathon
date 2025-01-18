@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
@@ -58,7 +57,9 @@ export default function Background3D() {
       transparent: true,
       opacity: 1, // Full opacity
       sizeAttenuation: true,
-      map: new THREE.TextureLoader().load('/path/to/round-particle-texture.png'), // Add round texture
+      map: new THREE.TextureLoader().load(
+        "/path/to/round-particle-texture.png"
+      ), // Add round texture
       alphaTest: 0.5, // Handle transparency
     });
 
