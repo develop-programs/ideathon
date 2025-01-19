@@ -17,7 +17,7 @@ export default async function page() {
   if (session) {
     if (session.user.role === "admin") {
       return (
-        <div className="h-screen max-w-6xl mx-auto space-y-6 py-12">
+        <div className="h-screen max-w-6xl mx-auto space-y-6 py-12 pb-24 overflow-x-auto">
           <h1 className="text-4xl font-bold">Admin Dashboard</h1>
           <Tabs defaultValue="StartUps">
             <TabsList>

@@ -54,10 +54,10 @@ model user {
 }
 
 enum Tier {
-  Platinum
-  Gold
-  Silver
-  Bronze
+  title
+  gold
+  silver
+  bronze
   other
 }
 

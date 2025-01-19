@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -7,67 +8,22 @@ import {
 } from "@/components/ui/dialog";
 import Link from "next/link";
 import SponsersForm from "./(components)/SponsersForm";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 import SponsersCard from "./(components)/SponsersCard";
 
-interface Sponsor {
-  name: string;
-  tier: "title" | "gold" | "silver" | "bronze" | "others";
-  logo: string;
-  website: string;
-}
-
-const SponsorsData: Sponsor[] = [
-  {
-    name: "TechCorp Global",
-    tier: "title",
-    logo: "/placeholder.svg",
-    website: "https://example.com",
-  },
-  {
-    name: "InnovateX",
-    tier: "gold",
-    logo: "/placeholder.svg",
-    website: "https://example.com",
-  },
-  {
-    name: "FutureVision Labs",
-    tier: "gold",
-    logo: "/placeholder.svg",
-    website: "https://example.com",
-  },
-  {
-    name: "Digital Dynamics",
-    tier: "silver",
-    logo: "/placeholder.svg",
-    website: "https://example.com",
-  },
-  {
-    name: "CloudSphere",
-    tier: "silver",
-    logo: "/placeholder.svg",
-    website: "https://example.com",
-  },
-  {
-    name: "ByteWave",
-    tier: "bronze",
-    logo: "/placeholder.svg",
-    website: "https://example.com",
-  },
-  {
-    name: "DataFlow Systems",
-    tier: "bronze",
-    logo: "/placeholder.svg",
-    website: "https://example.com",
-  },
-  {
-    name: "TechStart",
-    tier: "others",
-    logo: "/placeholder.svg",
-    website: "https://example.com",
-  },
-];
-
 export default function Page() {
+  const { data, refetch, isLoading, isError, error } = useQuery({
+    queryKey: ["sponsors"],
+    queryFn: async () => {
+      const response = await axios.get(`http://localhost:3000/api/Sponsors`);
+      return response.data.sponsors;
+    },
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error: {error.message}</div>;
+
   return (
     <div className="min-h-screen flex flex-col justify-around items-center py-12">
       <section>
@@ -109,11 +65,11 @@ export default function Page() {
       </section>
       <section>
         <div className="max-w-7xl mx-auto">
-          <SponsersCard title="title" data={SponsorsData} />
-          <SponsersCard title="gold" data={SponsorsData} />
-          <SponsersCard title="silver" data={SponsorsData} />
-          <SponsersCard title="bronze" data={SponsorsData} />
-          <SponsersCard title="others" data={SponsorsData} />
+          <SponsersCard title="title" data={data} />
+          <SponsersCard title="gold" data={data} />
+          <SponsersCard title="silver" data={data} />
+          <SponsersCard title="bronze" data={data} />
+          <SponsersCard title="other" data={data} />
         </div>
       </section>
       <section>

@@ -11,14 +11,8 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
-interface TeamMember {
-  name: string;
-  role: string;
-  image: string;
-  linkedIn: string;
-  instagram: string;
-  github: string;
-}
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const TeamsData: TeamMember[] = [
   {
@@ -89,6 +83,17 @@ const TeamsData: TeamMember[] = [
 ];
 
 export default function TeamsCarousel() {
+  const { data, refetch, isLoading, isError, error } = useQuery({
+    queryKey: ["team"],
+    queryFn: async () => {
+      const response = await axios.get(`http://localhost:3000/api/Team`);
+      return response.data.teams;
+    },
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error: {error.message}</div>;
+
   return (
     <Carousel
       className="max-w-7xl mx-auto"
@@ -98,7 +103,7 @@ export default function TeamsCarousel() {
       }}
     >
       <CarouselContent className="h-full">
-        {TeamsData.map((info: TeamMember, index: number) => (
+        {data.map((info: TeamMember, index: number) => (
           <CarouselItem
             key={index}
             className="h-full md:basis-1/2 lg:basis-1/3"
@@ -213,8 +218,6 @@ export default function TeamsCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200" />
-      <CarouselNext className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200" />
     </Carousel>
   );
 }

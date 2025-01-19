@@ -3,13 +3,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 
-interface Sponsor {
-  name: string;
-  tier: "title" | "gold" | "silver" | "bronze" | "others";
-  logo: string;
-  website: string;
-}
-
 export default function SponsersCard({
   title,
   data,
