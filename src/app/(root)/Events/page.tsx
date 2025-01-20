@@ -72,15 +72,15 @@ const EventCard = <T extends Event>({ event }: { event: T }) => (
   >
     <CardHeader>
       <div className="flex justify-between items-start">
-        <CardTitle className="text-2xl font-bold">{event.title}</CardTitle>
+        <CardTitle className="text-xl font-semibold">{event.title}</CardTitle>
         <Badge>{event.category}</Badge>
       </div>
-      <CardDescription className="text-base">
+      <CardDescription className="text-sm text-muted-foreground">
         {event.description}
       </CardDescription>
     </CardHeader>
     <CardContent>
-      <div className="space-y-4">
+      <div className="space-y-4 text-sm">
         <div className="flex items-center gap-2 text-muted-foreground">
           <Calendar className="h-5 w-5" />
           <span>{event.date}</span>
@@ -100,7 +100,7 @@ const EventCard = <T extends Event>({ event }: { event: T }) => (
       </div>
     </CardContent>
     <CardFooter>
-      <Button className="w-full group-hover:bg-primary transition-colors">
+      <Button size="sm" effect="ringHover" className="w-full">
         Register Now
       </Button>
     </CardFooter>
@@ -110,11 +110,11 @@ const EventCard = <T extends Event>({ event }: { event: T }) => (
 export default function Page() {
   return (
     <div className="min-h-screen flex flex-col justify-around items-center gap-12 py-12">
-      <section className="max-w-3xl flex flex-col gap-4 text-center">
-        <h1 className="text-5xl bg-gradient-to-r from-Csecondary to-Caccent bg-clip-text text-transparent font-bold">
+      <section className="max-w-3xl text-center">
+        <h1 className="h-16 text-5xl bg-gradient-to-r from-Csecondary to-Caccent bg-clip-text text-transparent font-bold">
           Upcoming Events
         </h1>
-        <span className="text-2xl text-gray-600 dark:text-gray-300">
+        <span className="text-xl text-gray-600 dark:text-gray-300">
           Join us for an exciting lineup of events designed to inspire, educate,
           and connect future entrepreneurs.
         </span>

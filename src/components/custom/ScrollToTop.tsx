@@ -4,15 +4,26 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function ScrollToTop() {
+  const [position, setPosition] = React.useState(0);
+
   function scrollToTop() {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }
+  React.useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setPosition(window.scrollY);
+    });
+  }, [position]);
   return (
     <Button
-      className="size-14 fixed bottom-12 right-5 rounded-full text-xl p-4 z-50 "
+      className={
+        position > 100
+          ? "size-14 fixed bottom-12 right-5 rounded-full text-xl p-4 z-50"
+          : "hidden"
+      }
       onClick={scrollToTop}
     >
       <Image

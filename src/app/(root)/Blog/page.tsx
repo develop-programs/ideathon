@@ -1,7 +1,14 @@
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import moment from "moment";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const BlogsData = [
   {
@@ -27,9 +34,9 @@ const BlogsData = [
 export default function page() {
   return (
     <div className="min-h-screen space-y-4">
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      <div className="max-w-5xl mx-auto px-4 py-8 space-y-12">
         <h2 className="text-4xl font-bold mb-6">Latest Blogs</h2>
-        <div className="space-y-6">
+        <div className="grid grid-cols-2 gap-4">
           {BlogsData.map((blog) => (
             <Card key={blog.id} className="hover:shadow-md transition-shadow">
               <CardHeader>
@@ -47,6 +54,11 @@ export default function page() {
               <CardContent>
                 <div className="prose text-sm">{blog.content}</div>
               </CardContent>
+              <CardFooter>
+                <Button size="sm" effect="shineHover">
+                  Read More
+                </Button>
+              </CardFooter>
             </Card>
           ))}
         </div>

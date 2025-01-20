@@ -46,31 +46,29 @@ export const Timeline = () => {
           {timelineData.map((day, index: number) => (
             <BackgroundGradient
               key={index}
-              className="relative p-[2px] rounded-lg animate-fade-in overflow-hidden"
+              className="rounded-[22px] max-w-full p-4 sm:p-8 bg-white dark:bg-zinc-900 text-start"
               gradiantColors="bg-[radial-gradient(circle_farthest-side_at_0_100%,#8B5CF6,transparent),radial-gradient(circle_farthest-side_at_100%_0,#F97316,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#8B5CF6,transparent),radial-gradient(circle_farthest-side_at_0_0,#F97316,#D946EF)]"
             >
-              <div className="relative bg-card rounded-2xl p-8 z-10">
-                <h3 className="text-2xl font-bold mb-6 text-primary">
-                  {day.day}
-                </h3>
-                <div className="space-y-8">
-                  {day.events.map((event) => (
-                    <div key={event.title} className="flex gap-4">
-                      <Clock className="w-6 h-6 text-Csecondary flex-shrink-0 mt-1" />
-                      <div>
-                        <p className="text-sm text-muted-foreground">
-                          {event.time}
-                        </p>
-                        <h4 className="text-xl font-semibold mb-2 text-card-foreground">
-                          {event.title}
-                        </h4>
-                        <p className="text-muted-foreground">
-                          {event.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+              <h3 className="text-2xl font-bold mb-6 text-primary">
+              {day.day}
+              </h3>
+              <div className="space-y-8">
+              {day.events.map((event) => (
+                <div key={event.title} className="flex gap-4">
+                <Clock className="w-6 h-6 text-Csecondary flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                  {event.time}
+                  </p>
+                  <h4 className="text-xl font-semibold mb-2 text-card-foreground">
+                  {event.title}
+                  </h4>
+                  <p className="text-muted-foreground">
+                  {event.description}
+                  </p>
                 </div>
+                </div>
+              ))}
               </div>
             </BackgroundGradient>
           ))}

@@ -21,9 +21,6 @@ export default function Page() {
     },
   });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error: {error.message}</div>;
-
   return (
     <div className="min-h-screen flex flex-col justify-around items-center py-12">
       <section>
@@ -65,11 +62,21 @@ export default function Page() {
       </section>
       <section>
         <div className="max-w-7xl mx-auto">
-          <SponsersCard title="title" data={data} />
-          <SponsersCard title="gold" data={data} />
-          <SponsersCard title="silver" data={data} />
-          <SponsersCard title="bronze" data={data} />
-          <SponsersCard title="other" data={data} />
+          {isLoading ? (
+            <div className="w-full grid place-content-center py-12 text-2xl font-bold">
+              <span className="animate-pulse">Loading...</span>
+            </div>
+          ) : isError ? (
+            <div>Error: {error.message}</div>
+          ) : (
+            <>
+              <SponsersCard title="title" data={data} />
+              <SponsersCard title="gold" data={data} />
+              <SponsersCard title="silver" data={data} />
+              <SponsersCard title="bronze" data={data} />
+              <SponsersCard title="other" data={data} />
+            </>
+          )}
         </div>
       </section>
       <section>

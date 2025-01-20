@@ -1,6 +1,8 @@
+import { BackgroundGradient } from "@/components/ui/bg-gradiant";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function SponsersCard({
@@ -30,33 +32,25 @@ export default function SponsersCard({
         {data
           .filter((data) => data.tier === title)
           .map((sponsor: Sponsor, index: number) => (
-            <Card
+            <BackgroundGradient
+              className="rounded-[22px] max-w-sm p-1.5 bg-white dark:bg-zinc-900"
+              gradiantColors="bg-[radial-gradient(circle_farthest-side_at_0_100%,#8B5CF6,transparent),radial-gradient(circle_farthest-side_at_100%_0,#F97316,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#8B5CF6,transparent),radial-gradient(circle_farthest-side_at_0_0,#F97316,#D946EF,50%)]"
               key={index}
-              className="w-80 overflow-hidden transition-transform transform hover:scale-105"
             >
-              <CardContent className="p-0 w-full">
+              <div className="relative size-72">
                 <Image
                   src={sponsor.logo}
-                  alt={sponsor.name}
-                  width={200}
-                  height={200}
-                  className="object-cover aspect-video w-full h-full"
+                  width={100}
+                  height={100}
+                  alt="Sponser-image"
+                  className="object-cover aspect-square rounded-2xl w-full h-full"
                 />
-              </CardContent>
-              <CardFooter className="py-4 px-6 grid gap-2 text-start">
-                <span className="block text-lg font-semibold">
+                <div className="absolute bottom-0 w-full bg-slate-800 rounded-b-2xl grid gap-3 p-4 text-start">
                   {sponsor.name}
-                </span>
-                <a
-                  href={sponsor.website}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-blue-500 hover:underline"
-                >
-                  Visit Website
-                </a>
-              </CardFooter>
-            </Card>
+                  <Link href={sponsor.website}>Visit</Link>
+                </div>
+              </div>
+            </BackgroundGradient>
           ))}
       </div>
     </div>

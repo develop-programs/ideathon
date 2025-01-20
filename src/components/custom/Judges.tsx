@@ -1,6 +1,5 @@
 "use client";
-import { User } from "lucide-react";
-import { BackgroundGradient } from "../ui/bg-gradiant";
+import { UserRound } from "lucide-react";
 
 const judges = [
   {
@@ -35,14 +34,13 @@ export default function Judges() {
         >
           Meet Our Judges
         </h2>
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-4 gap-12">
           {judges.map((judge, index) => (
-            <BackgroundGradient
-              className="rounded-[22px] max-w-sm p-4 sm:p-8 text-center bg-white dark:bg-zinc-900"
-              gradiantColors="bg-[radial-gradient(circle_farthest-side_at_0_100%,#8B5CF6,transparent),radial-gradient(circle_farthest-side_at_100%_0,#F97316,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#8B5CF6,transparent),radial-gradient(circle_farthest-side_at_0_0,#F97316,#D946EF,50%)]"
+            <div
+              className="rounded-[22px] max-w-sm p-4 sm:p-8 text-center bg-white dark:bg-zinc-900 shadow-lg transform transition duration-500 hover:scale-105 border-2"
               key={index}
             >
-              <User className="mx-auto h-16 w-16 text-gray-400 dark:text-gray-600" />
+              <UserRound className="mx-auto h-16 w-16 text-gray-400 dark:text-gray-600" />
               <p className="text-base sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
                 {judge.name}
               </p>
@@ -52,7 +50,7 @@ export default function Judges() {
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 {judge.expertise}
               </p>
-            </BackgroundGradient>
+            </div>
           ))}
         </div>
       </div>

@@ -117,7 +117,9 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <Button type="submit" className="col-span-2">
+              Submit
+            </Button>
           </form>
         </Form>
       </CardContent>

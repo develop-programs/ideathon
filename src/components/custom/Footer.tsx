@@ -142,7 +142,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-slate-300 dark:bg-[#1A1F2C] dark:text-gray-300">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="max-w-7xl mx-auto px-6 py-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo and Title Section */}
           <div>
