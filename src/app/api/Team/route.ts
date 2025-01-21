@@ -83,6 +83,7 @@ export async function PATCH(req: NextRequest) {
         const team = await prisma.team.update({
             where: { id: Number(id) },
             data: {
+                id: Number(id),
                 name: body.name,
                 role: body.role,
                 image: body.image,

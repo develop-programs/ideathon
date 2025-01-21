@@ -207,9 +207,10 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center space-y-2">
           <p className="text-sm text-gray-400">
-            Developed with <span className="text-red-500 animate-pulse">❤</span>{" "}
-            by School of Engineering and Research
+            Developed with <span className="text-red-500 animate-pulse">❤</span>
+            by Technica Club
           </p>
+          <span>School of Engineering and Research</span>
           <p className="text-sm text-gray-500">
             © 2024 - ITM University, Raipur ~ All Rights Reserved
           </p>
