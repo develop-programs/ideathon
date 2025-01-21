@@ -36,11 +36,11 @@ export default function page() {
     <div className="min-h-screen space-y-4">
       <div className="max-w-5xl mx-auto px-4 py-8 space-y-12">
         <h2 className="text-4xl font-bold mb-6">Latest Blogs</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-4">
           {BlogsData.map((blog) => (
             <Card key={blog.id} className="hover:shadow-md transition-shadow">
               <CardHeader>
-                <div className="flex justify-between items-start">
+                <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                   <div>
                     <CardTitle className="text-xl mb-2">{blog.title}</CardTitle>
                     <div className="text-sm text-muted-foreground">

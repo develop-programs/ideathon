@@ -96,19 +96,19 @@ export default function TeamsCarousel() {
 
   return (
     <Carousel
-      className="max-w-7xl mx-auto"
-      plugins={[Autoplay({ delay: 1000 })]}
-      opts={{
-        loop: true,
-      }}
+      className="max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-4xl xl:max-w-6xl mx-auto"
+      // plugins={[Autoplay({ delay: 1000 })]}
+      // opts={{
+      //   loop: true,
+      // }}
     >
       <CarouselContent className="h-full">
         {data.map((info: TeamMember, index: number) => (
           <CarouselItem
             key={index}
-            className="h-full md:basis-1/2 lg:basis-1/3"
+            className="h-full sm:basis-full lg:basis-1/3"
           >
-            <div className="p-4">
+            <div className="p-5 lg:p-2.5 xl:p-5">
               <Card className="w-full h-full aspect-square shadow-lg rounded-lg overflow-hidden dark:bg-dark-card">
                 <CardContent className="relative w-full h-full flex flex-col items-center justify-end p-0">
                   <Image
@@ -118,18 +118,18 @@ export default function TeamsCarousel() {
                     height={300}
                     alt="images"
                   />
-                  <div className="w-full bg-black/30 dark:bg-black/60 z-50 py-4 space-y-2 rounded-b-md">
-                    <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-gray-100">
+                  <div className="w-full bg-black/30 dark:bg-black/60 z-50 py-2 sm:py-4 space-y-1 sm:space-y-2 rounded-b-md">
+                    <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 dark:text-gray-100">
                       {info.name}
                     </h3>
-                    <p className="text-lg text-center text-gray-600 dark:text-gray-300">
+                    <p className="text-base sm:text-lg text-center text-gray-600 dark:text-gray-300">
                       {info.role}
                     </p>
-                    <div className="flex justify-center space-x-4">
+                    <div className="flex justify-center space-x-2 sm:space-x-4">
                       <Link
                         href={info.linkedIn}
                         target="_blank"
-                        className="flex items-center gap-2 text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
+                        className="flex items-center gap-1 sm:gap-2 text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
                       >
                         <svg
                           width="24"
@@ -159,7 +159,7 @@ export default function TeamsCarousel() {
                       <Link
                         href={info.instagram}
                         target="_blank"
-                        className="flex items-center gap-2 text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
+                        className="flex items-center gap-1 sm:gap-2 text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
                       >
                         <svg
                           width="24"
@@ -185,7 +185,7 @@ export default function TeamsCarousel() {
                       <Link
                         href={info.github}
                         target="_blank"
-                        className="flex items-center gap-2 text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
+                        className="flex items-center gap-1 sm:gap-2 text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
                       >
                         <svg
                           width="20"

@@ -32,7 +32,7 @@ export default function Prizes() {
     <section className="py-20 relative overflow-hidden select-none">
       <div className="absolute inset-0" />
       <div className="max-w-7xl mx-auto px-6 relative">
-        <h2 className="text-5xl font-bold text-center mb-16">
+        <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
           <span className="bg-gradient-to-r from-Cprimary via-Csecondary to-Caccent bg-clip-text text-transparent">
             Prizes Worth ₹60,000
           </span>
@@ -40,7 +40,7 @@ export default function Prizes() {
         <div className="grid md:grid-cols-3 gap-12">
           {prizes.map((prize, index) => (
             <BackgroundGradient
-              className="rounded-[22px] max-w-sm p-4 sm:p-10 text-center bg-white dark:bg-zinc-900"
+              className="rounded-[22px] w-full p-4 sm:p-10 flex flex-col items-center justify-center bg-white dark:bg-zinc-900"
               gradiantColors={prize.gradiantColors}
               key={index}
             >
@@ -61,7 +61,7 @@ export default function Prizes() {
                     : prize.position === "2nd Prize"
                     ? "text-[#c0c0c0]"
                     : "text-[#cd7f32]",
-                  "text-5xl font-bold"
+                  "text-2xl lg:text-5xl font-bold"
                 )}
               >
                 {prize.amount}

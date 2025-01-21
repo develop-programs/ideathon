@@ -28,7 +28,7 @@ export default function Page() {
           <h1 className="text-4xl font-bold bg-gradient-to-r from-Cprimary via-Csecondary to-Caccent bg-clip-text text-transparent">
             Our Valued Sponsors
           </h1>
-          <p className="max-w-2xl text-xl text-gray-600 dark:text-gray-300">
+          <p className="max-w-2xl text-base md:text-xl text-gray-600 dark:text-gray-300">
             Meet the innovative organizations supporting our mission and making
             our events possible.
           </p>
@@ -84,7 +84,7 @@ export default function Page() {
           <h2 className="text-4xl font-bold bg-gradient-to-r from-Cprimary via-Csecondary to-Caccent bg-clip-text text-transparent">
             Become a Sponsor
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
+          <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
             Join our community of innovative sponsors and help shape the future
             of entrepreneurship. Partner with us to make a lasting impact.
           </p>

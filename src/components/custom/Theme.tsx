@@ -9,7 +9,7 @@ export default function ThemeComponent() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="fixed top-12 right-12 z-50">
+    <div className="fixed top-4 right-4 z-50">
       <div className="flex flex-col justify-center">
         <input
           type="checkbox"

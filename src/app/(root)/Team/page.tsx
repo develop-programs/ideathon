@@ -12,19 +12,19 @@ import VolunteerForm from "./(component)/VotuneerForm";
 
 export default function Team() {
   return (
-    <div className="min-h-screen bg-background dark:bg-dark-background flex flex-col justify-around items-center">
+    <div className="min-h-screen bg-background dark:bg-dark-background grid place-content-center sm:py-24 lg:py-0">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl font-semibold mb-6 animate-fade-in text-gray-900 dark:text-gray-100">
+            <h1 className="text-2xl md:text-5xl font-semibold mb-6 animate-fade-in text-gray-900 dark:text-gray-100">
               Meet{" "}
-              <span className="text-6xl font-bold bg-gradient-to-r from-Cprimary via-Csecondary to-Caccent bg-clip-text text-transparent">
+              <span className="text-3xl md:text-6xl font-bold bg-gradient-to-r from-Cprimary via-Csecondary to-Caccent bg-clip-text text-transparent">
                 OUR
               </span>{" "}
               team
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-sm md:text-xl text-gray-600 dark:text-gray-300 mb-8">
               Meet the innovative minds shaping our Ideathon. Discover and
               connect with the diverse talents fueling creativity and
               collaboration.

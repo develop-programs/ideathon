@@ -194,7 +194,7 @@ export default function Footer() {
             <h4 className="text-xl font-bold mb-6 dark:text-white border-b border-gray-700 pb-2">
               Follow Us
             </h4>
-            <div className="flex items-center">
+            <div className="flex items-center flex-wrap gap-4">
               {SocialMedia.map((social, index) => (
                 <Link href={social.href} key={index}>
                   {social.icon}
@@ -207,7 +207,8 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center space-y-2">
           <p className="text-sm text-gray-400">
-            Developed with <span className="text-red-500 animate-pulse">❤</span>
+            Developed with
+            <span className="text-red-500 animate-pulse px-1">❤</span>
             by Technica Club
           </p>
           <span>School of Engineering and Research</span>

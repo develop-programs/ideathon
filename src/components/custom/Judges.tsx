@@ -34,7 +34,7 @@ export default function Judges() {
         >
           Meet Our Judges
         </h2>
-        <div className="grid md:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {judges.map((judge, index) => (
             <div
               className="rounded-[22px] max-w-sm p-4 sm:p-8 text-center bg-white dark:bg-zinc-900 shadow-lg transform transition duration-500 hover:scale-105 border-2"

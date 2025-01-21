@@ -111,16 +111,16 @@ export default function Page() {
   return (
     <div className="min-h-screen flex flex-col justify-around items-center gap-12 py-12">
       <section className="max-w-3xl text-center">
-        <h1 className="h-16 text-5xl bg-gradient-to-r from-Csecondary to-Caccent bg-clip-text text-transparent font-bold">
+        <h1 className="h-24 lg:h-16 text-5xl bg-gradient-to-r from-Csecondary to-Caccent bg-clip-text text-transparent font-bold">
           Upcoming Events
         </h1>
-        <span className="text-xl text-gray-600 dark:text-gray-300">
+        <span className="text-base md:text-xl text-gray-600 dark:text-gray-300">
           Join us for an exciting lineup of events designed to inspire, educate,
           and connect future entrepreneurs.
         </span>
       </section>
       <section>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 px-4">
           {upcomingEvents.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}

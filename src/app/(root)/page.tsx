@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <div className="select-none">
       <BackgroundBeamsWithCollision>
-        <div className="max-w-7xl mx-auto px-6 py-12 grid place-content-center">
-          <div className=" space-y-6 max-w-4xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto grid place-content-center">
+          <div className="space-y-4 lg:space-y-8 max-w-4xl px-4 py-12 mx-auto text-center">
             <div className="relative">
               <div className="z-10 flex min-h-12 items-center justify-center">
                 <div
@@ -25,20 +25,20 @@ export default function Home() {
                     "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
                   )}
                 >
-                  <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+                  <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 text-sm lg:text-base transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
                     <span>✨ happning Soon ✨</span>
                     <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
                   </AnimatedShinyText>
                 </div>
               </div>
               <div className="relative">
-                <span className="text-7xl uppercase font-black text-transparent bg-clip-text bg-gradient-to-r from-Cprimary via-Csecondary to-Caccent animate-gradient-x leading-tight">
+                <span className="text-4xl md:text-6xl lg:text-7xl uppercase font-black text-transparent bg-clip-text bg-gradient-to-r from-Cprimary via-Csecondary to-Caccent animate-gradient-x leading-tight">
                   Ideathon <br /> From Concept to <br /> market
                 </span>
               </div>
             </div>
 
-            <Card className="text-xl md:text-2xl bg-white dark:bg-black animate-fade-in shadow-xl backdrop-blur-md">
+            <Card className="text-base md:text-xl lg:text-2xl bg-white dark:bg-black animate-fade-in shadow-xl backdrop-blur-md">
               <CardContent className="p-6">
                 Transform your innovative ideas into market-ready solutions.
                 Join us for an exciting two-day journey of learning, pitching,
@@ -46,8 +46,8 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 animate-fade-in">
-              <div className="col-span-1 md:col-span-3 lg:col-span-1 transform hover:scale-105 transition-transform duration-300">
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-12 animate-fade-in">
+              <div className="col-span-1 md:col-span-3 lg:col-span-2 transform hover:scale-105 transition-transform duration-300">
                 <Card className="bg-white dark:bg-black animate-fade-in shadow-xl backdrop-blur-md">
                   <CardContent className="p-6 flex items-center space-x-4">
                     <svg
@@ -67,38 +67,42 @@ export default function Home() {
                     </svg>
                     <div className="text-start">
                       <h3 className="font-semibold text-lg">Date</h3>
-                      <span className="text-base">March 15-16, 2024</span>
+                      <span className="text-sm lg:text-base">
+                        March 15-16, 2024
+                      </span>
                     </div>
                   </CardContent>
                 </Card>
               </div>
 
-              <div className="col-span-1 md:col-span-3 lg:col-span-1 transform hover:scale-105 transition-transform duration-300">
+              <div className="col-span-1 md:col-span-3 lg:col-span-2 transform hover:scale-105 transition-transform duration-300">
                 <Card className="bg-white dark:bg-black animate-fade-in shadow-xl backdrop-blur-md">
                   <CardContent className="p-6 flex items-center space-x-4">
                     <MapPin className="w-12 h-12 text-Csecondary" />
                     <div className="text-start">
                       <h3 className="font-semibold text-lg">Venue</h3>
-                      <span className="text-base">College Auditorium</span>
+                      <span className="text-sm lg:text-base">
+                        College Auditorium
+                      </span>
                     </div>
                   </CardContent>
                 </Card>
               </div>
 
-              <div className="col-span-1 md:col-span-3 lg:col-span-1 transform hover:scale-105 transition-transform duration-300">
+              <div className="col-span-1 md:col-span-6 lg:col-span-2 transform hover:scale-105 transition-transform duration-300">
                 <Card className="bg-white dark:bg-black animate-fade-in shadow-xl backdrop-blur-md">
                   <CardContent className="p-6 flex items-center space-x-4">
                     <Trophy className="size-12 text-Caccent" />
                     <div className="text-start">
                       <h3 className="font-semibold text-lg">Prize Pool</h3>
-                      <span className="text-base">₹60,000</span>
+                      <span className="text-sm lg:text-base">₹60,000</span>
                     </div>
                   </CardContent>
                 </Card>
               </div>
             </div>
 
-            <RainbowButton className="text-2xl px-12 py-6">
+            <RainbowButton className="lg:text-2xl px-12 py-6">
               Register Now
             </RainbowButton>
           </div>
