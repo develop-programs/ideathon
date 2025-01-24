@@ -11,7 +11,7 @@ export default function Background3D() {
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
-      75,
+      90, // Increased FOV from 75 to 90
       window.innerWidth / window.innerHeight,
       0.1,
       1000
