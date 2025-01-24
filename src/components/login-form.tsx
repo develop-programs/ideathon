@@ -38,7 +38,7 @@ export function LoginForm() {
       username: values.username,
       password: values.password,
       redirect: true,
-      callbackUrl: `/admin`,
+      callbackUrl: `${window.location.origin}/admin`,
     });
   }
 
