@@ -44,7 +44,7 @@ export default function TeamsCarousel() {
               <Card className="w-full h-full aspect-square shadow-lg rounded-lg overflow-hidden dark:bg-dark-card">
                 <CardContent className="relative w-full h-full flex flex-col items-center justify-end p-0">
                   <Image
-                    src="/placeholder.svg"
+                    src={info.image ? info.image : "/placeholder.svg"}
                     className="absolute aspect-square w-full h-full object-cover"
                     width={300}
                     height={300}
