@@ -15,7 +15,7 @@ export default function Page() {
   const { data, error, isLoading } = useQuery({
     queryKey: ["startups"],
     queryFn: async () => {
-      const data = await axios.get("http://localhost:3000/api/startups");
+      const data = await axios.get(`${window.location.origin}/api/startups`);
       return data.data.startups;
     },
   });
