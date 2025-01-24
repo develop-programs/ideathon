@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="select-none">
       <div className="max-w-7xl mx-auto grid place-content-center">
-        <div className="space-y-4 lg:space-y-8 max-w-4xl px-4 py-12 mx-auto text-center">
+        <div className="space-y-4 lg:space-y-8 max-w-4xl px-4 py-36 mx-auto text-center">
           <div className="relative">
             <div className="z-10 flex min-h-12 items-center justify-center">
               <div
