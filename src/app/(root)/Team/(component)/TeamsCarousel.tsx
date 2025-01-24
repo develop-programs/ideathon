@@ -14,79 +14,11 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const TeamsData: TeamMember[] = [
-  {
-    name: "Aryan Patel",
-    role: "Core Lead",
-    image: "https://www.linkedin.com/in/ghostxaryan/overlay/photo/",
-    linkedIn: "https://www.linkedin.com/in/ghostxaryan/",
-    instagram: "https://www.instagram.com/aryan__insta/",
-    github: "https://github.com/ghostyARYAN",
-  },
-  {
-    name: "Siddhant Supkar",
-    role: "Core Lead",
-    image: "https://www.linkedin.com/in/ghostxaryan/overlay/photo/",
-    linkedIn: "https://www.linkedin.com/in/siddhantsupkar/",
-    instagram: "https://www.instagram.com/_mrr_sid_/",
-    github: "https://github.com/ghostySIDDHANT",
-  },
-  {
-    name: "Sutikshan Yadav",
-    role: "Tech Lead",
-    image: "https://www.linkedin.com/in/ghostxaryan/overlay/photo/",
-    linkedIn: "https://www.linkedin.com/in/ghostxaryan/",
-    instagram: "https://www.linkedin.com/in/ghostxaryan/",
-    github: "",
-  },
-  {
-    name: "Shreyansh Awadhiya",
-    role: "Tech Lead",
-    image: "https://www.linkedin.com/in/ghostxaryan/overlay/photo/",
-    linkedIn: "https://www.linkedin.com/in/ghostxaryan/",
-    instagram: "https://www.linkedin.com/in/ghostxaryan/",
-    github: "",
-  },
-  {
-    name: "Ayush Sahu",
-    role: "Social-Media Lead",
-    image: "https://www.linkedin.com/in/ghostxaryan/overlay/photo/",
-    linkedIn: "https://www.linkedin.com/in/ghostxaryan/",
-    instagram: "https://www.linkedin.com/in/ghostxaryan/",
-    github: "",
-  },
-  {
-    name: "Pranjali Sharma",
-    role: "Community Manager",
-    image: "https://www.linkedin.com/in/ghostxaryan/overlay/photo/",
-    linkedIn: "https://www.linkedin.com/in/ghostxaryan/",
-    instagram: "https://www.linkedin.com/in/ghostxaryan/",
-    github: "",
-  },
-  {
-    name: "Krishna Patel",
-    role: "Volunteer",
-    image: "https://www.linkedin.com/in/ghostxaryan/overlay/photo/",
-    linkedIn: "https://www.linkedin.com/in/ghostxaryan/",
-    instagram: "https://www.linkedin.com/in/ghostxaryan/",
-    github: "",
-  },
-  {
-    name: "Charchit Bhattar",
-    role: "Management Lead",
-    image: "https://www.linkedin.com/in/ghostxaryan/overlay/photo/",
-    linkedIn: "https://www.linkedin.com/in/ghostxaryan/",
-    instagram: "https://www.linkedin.com/in/ghostxaryan/",
-    github: "",
-  },
-  // Add more team members here
-];
-
 export default function TeamsCarousel() {
   const { data, refetch, isLoading, isError, error } = useQuery({
     queryKey: ["team"],
     queryFn: async () => {
-      const response = await axios.get(`http://localhost:3000/api/Team`);
+      const response = await axios.get(`${window.location.origin}/api/Team`);
       return response.data.teams;
     },
   });
@@ -97,10 +29,10 @@ export default function TeamsCarousel() {
   return (
     <Carousel
       className="max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-4xl xl:max-w-6xl mx-auto"
-      // plugins={[Autoplay({ delay: 1000 })]}
-      // opts={{
-      //   loop: true,
-      // }}
+      plugins={[Autoplay({ delay: 1000 })]}
+      opts={{
+        loop: true,
+      }}
     >
       <CarouselContent className="h-full">
         {data.map((info: TeamMember, index: number) => (

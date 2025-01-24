@@ -79,14 +79,14 @@ export default function TeamEditor() {
   const { data, refetch, isLoading, isError, error } = useQuery({
     queryKey: ["team"],
     queryFn: async () => {
-      const response = await axios.get(`http://localhost:3000/api/Team`);
+      const response = await axios.get(`${window.location.origin}/api/Team`);
       return response.data;
     },
   });
 
   const addMutation = useMutation({
     mutationFn: async (newMember: z.infer<typeof formSchema>) => {
-      await axios.post(`http://localhost:3000/api/Team`, {
+      await axios.post(`${window.location.origin}/api/Team`, {
         name: newMember.username,
         role: newMember.role,
         image: newMember.image,
@@ -114,7 +114,7 @@ export default function TeamEditor() {
       id: string;
       updatedMember: z.infer<typeof formSchema>;
     }) => {
-      await axios.patch(`http://localhost:3000/api/Team?id=${id}`, {
+      await axios.patch(`${window.location.origin}/api/Team?id=${id}`, {
         name: updatedMember.username,
         role: updatedMember.role,
         image: updatedMember.image,
@@ -136,7 +136,7 @@ export default function TeamEditor() {
 
   const deleteMutation = useMutation({
     mutationFn: async (id: string) => {
-      await axios.delete(`http://localhost:3000/api/Team`, {
+      await axios.delete(`${window.location.origin}/api/Team`, {
         data: { id },
       });
     },

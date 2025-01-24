@@ -64,14 +64,16 @@ export default function StartupEditor() {
   const { data, refetch, isLoading, isError, error } = useQuery({
     queryKey: ["startups"],
     queryFn: async () => {
-      const response = await axios.get(`http://localhost:3000/api/startups`);
+      const response = await axios.get(
+        `${window.location.origin}/api/startups`
+      );
       return response.data;
     },
   });
 
   const addMutation = useMutation({
     mutationFn: async (newStartup: z.infer<typeof formSchema>) => {
-      await axios.post(`http://localhost:3000/api/Startups`, newStartup);
+      await axios.post(`${window.location.origin}/api/startups`, newStartup);
     },
     onSuccess: () => {
       toast.success("Startup added successfully");
@@ -92,7 +94,10 @@ export default function StartupEditor() {
       id: string;
       updatedStartup: z.infer<typeof formSchema>;
     }) => {
-      await axios.patch(`http://localhost:3000/api/Startups?id=${id}`, updatedStartup);
+      await axios.patch(
+        `${window.location.origin}/api/Startups?id=${id}`,
+        updatedStartup
+      );
     },
     onSuccess: () => {
       toast.success("Startup updated successfully");
@@ -107,7 +112,7 @@ export default function StartupEditor() {
 
   const deleteMutation = useMutation({
     mutationFn: async (id: string) => {
-      await axios.delete(`http://localhost:3000/api/Startups`, {
+      await axios.delete(`${window.location.origin}/api/Startups`, {
         data: { id },
       });
     },
@@ -220,7 +225,10 @@ export default function StartupEditor() {
                     <FormItem className="lg:col-span-2">
                       <FormLabel>Category</FormLabel>
                       <FormControl>
-                        <Select value={field.value} onValueChange={field.onChange}>
+                        <Select
+                          value={field.value}
+                          onValueChange={field.onChange}
+                        >
                           <SelectTrigger>
                             <SelectValue placeholder="Select a category" />
                           </SelectTrigger>

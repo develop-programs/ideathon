@@ -56,14 +56,16 @@ export const SponsorEditor = () => {
   const { data, refetch, isLoading, isError, error } = useQuery({
     queryKey: ["sponsors"],
     queryFn: async () => {
-      const response = await axios.get(`http://localhost:3000/api/Sponsors`);
+      const response = await axios.get(
+        `${window.location.origin}/api/Sponsors`
+      );
       return response.data;
     },
   });
 
   const addMutation = useMutation({
     mutationFn: async (newSponsor: z.infer<typeof formSchema>) => {
-      await axios.post(`http://localhost:3000/api/Sponsors`, {
+      await axios.post(`${window.location.origin}/api/Sponsors`, {
         name: newSponsor.name,
         tier: newSponsor.tier,
         logo: newSponsor.logo,
@@ -89,7 +91,7 @@ export const SponsorEditor = () => {
       id: string;
       updatedSponsor: z.infer<typeof formSchema>;
     }) => {
-      await axios.patch(`http://localhost:3000/api/Sponsors?id=${id}`, {
+      await axios.patch(`${window.location.origin}/api/Sponsors?id=${id}`, {
         name: updatedSponsor.name,
         tier: updatedSponsor.tier,
         logo: updatedSponsor.logo,
@@ -109,7 +111,7 @@ export const SponsorEditor = () => {
 
   const deleteMutation = useMutation({
     mutationFn: async (id: string) => {
-      await axios.delete(`http://localhost:3000/api/Sponsors`, {
+      await axios.delete(`${window.location.origin}/api/Sponsors`, {
         data: { id },
       });
     },

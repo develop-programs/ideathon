@@ -13,10 +13,12 @@ import { useQuery } from "@tanstack/react-query";
 import SponsersCard from "./(components)/SponsersCard";
 
 export default function Page() {
-  const { data, refetch, isLoading, isError, error } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["sponsors"],
     queryFn: async () => {
-      const response = await axios.get(`http://localhost:3000/api/Sponsors`);
+      const response = await axios.get(
+        `${window.location.origin}/api/Sponsors`
+      );
       return response.data.sponsors;
     },
   });
