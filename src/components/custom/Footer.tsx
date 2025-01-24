@@ -175,7 +175,6 @@ export default function Footer() {
                 { title: "Contact", href: "/Contact" },
                 { title: "Blog", href: "/Blog" },
                 { title: "Our Startup", href: "/OurStartup" },
-                { title: "Startup Detail", href: "/startup-detail" },
               ].map((link, index) => (
                 <li key={index}>
                   <Link

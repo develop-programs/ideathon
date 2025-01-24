@@ -12,7 +12,7 @@ import VolunteerForm from "./(component)/VotuneerForm";
 
 export default function Team() {
   return (
-    <div className="min-h-screen bg-background dark:bg-dark-background grid place-content-center sm:py-24 lg:py-0">
+    <div className="min-h-screen grid place-content-center gap-24 sm:py-24 lg:py-0">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
