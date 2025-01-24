@@ -6,6 +6,8 @@ import TeamEditor from "@/components/custom/forms/TeamEditor";
 import StartupEditor from "@/components/custom/forms/StartupEditor";
 import { SponsorEditor } from "@/components/custom/forms/SponsorEditor";
 import BlogEditor from "@/components/custom/forms/BlogEditor";
+import { Button } from "@/components/ui/button";
+import SignOut from "@/components/custom/SignOut";
 
 export const metadata: Metadata = {
   title: "Admin",
@@ -20,12 +22,15 @@ export default async function page() {
         <div className="h-screen max-w-6xl mx-auto space-y-6 py-12 pb-24 overflow-x-auto">
           <h1 className="text-4xl font-bold">Admin Dashboard</h1>
           <Tabs defaultValue="StartUps">
-            <TabsList>
-              <TabsTrigger value="StartUps">StartUps</TabsTrigger>
-              <TabsTrigger value="Teams">Teams</TabsTrigger>
-              <TabsTrigger value="Sponsers">Sponsers</TabsTrigger>
-              <TabsTrigger value="Blog">Blog</TabsTrigger>
-            </TabsList>
+            <div className="flex justify-between">
+              <TabsList>
+                <TabsTrigger value="StartUps">StartUps</TabsTrigger>
+                <TabsTrigger value="Teams">Teams</TabsTrigger>
+                <TabsTrigger value="Sponsers">Sponsers</TabsTrigger>
+                <TabsTrigger value="Blog">Blog</TabsTrigger>
+              </TabsList>
+              <SignOut />
+            </div>
             <TabsContent value="StartUps" className="max-w-6xl">
               <StartupEditor />
             </TabsContent>
